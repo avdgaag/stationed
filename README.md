@@ -131,6 +131,6 @@ See the [HISTORY](https://github.com/avdgaag/stationed/blob/master/HISTORY.md) f
 Created by: Arjan van der Gaag  
 URL: [http://arjanvandergaag.nl](http://arjanvandergaag.nl)  
 Project homepage:
-[http://avdgaag.github.com/rpub](http://avdgaag.github.com/stationed)  
+[http://avdgaag.github.com/stationed](http://avdgaag.github.com/stationed)  
 Date: april 2014  
 License: [MIT-license](https://github.com/avdgaag/stationed/LICENSE) (same as Ruby)
