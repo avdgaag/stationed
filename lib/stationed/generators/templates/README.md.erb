@@ -1,0 +1,42 @@
+# <%= app_name %>
+
+Provide a brief description of the purpose of this application.
+
+## Setup instructions
+
+This application requires a working installation of Ruby and Rubygems on your
+system, along with a functioning database such as SQLite or PostgreSQL. Install
+Ruby gem dependencies using Bundler.
+
+For full instructions, see [doc/wiki/Setup.md](doc/wiki/Setup.md).
+
+## Documentation
+
+### Wiki
+
+The application-specific Wiki is stored in `doc/wiki` and contains anything
+need to know to work with this project. You can view and edit the wiki in a
+web-based application using the [Gollum][]
+project.
+
+### API docs
+
+You can generate API documentation for this project with the following Rake
+task:
+
+    % bin/rake doc:yard
+
+Documentation will be output in HTML format in `doc/app`. To also generate API
+docs for the Rails framework, use:
+
+    % bin/rake doc:api
+
+Further usage guides for the Rails framework can be generated using this task:
+
+    % bin/rake doc:guides
+
+## Authors
+
+* Your Name <name@email.com>
+
+[Gollum]: https://github.com/gollum/gollum

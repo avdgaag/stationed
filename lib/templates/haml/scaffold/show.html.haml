@@ -1,0 +1,9 @@
+%h1= page_title @<%= singular_table_name %>
+
+%dl
+<% attributes.each do |attribute| %>
+  %dt= <%= class_name %>.human_attribute_name(:<%= attribute.name %>)
+  %dd= @<%= singular_table_name %>.<%= attribute.name %>
+<% end %>
+
+= link_to_edit @<%= singular_table_name %>

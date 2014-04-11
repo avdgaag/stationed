@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+$LOAD_PATH << File.expand_path('../../lib', __FILE__)
+require 'stationed/generators/app_generator'
+Stationed::Generators::AppGenerator.start

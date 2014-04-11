@@ -1,0 +1,24 @@
+%h1= page_title @<%= plural_table_name %>
+
+= link_to_new <%= class_name %>
+
+%table
+  %thead
+    %tr
+<%- attributes.each do |attribute| -%>
+      %th= <%= class_name %>.human_attribute_name(:<%= attribute.name %>)
+<%- end -%>
+      %th
+      %th
+      %th
+  %tbody
+    - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+      %tr[<%= singular_table_name %>]{ class: cycle('odd', 'even') }
+<%- attributes.each do |attribute| -%>
+        %td= <%= singular_table_name %>.<%= attribute.name %>
+<%- end -%>
+        %td= link_to_show <%= singular_table_name %>
+        %td= link_to_edit <%= singular_table_name %>
+        %td= link_to_destroy <%= singular_table_name %>
+
+= paginate @<%= plural_table_name %>

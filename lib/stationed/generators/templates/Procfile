@@ -1,0 +1,1 @@
+web: bin/thin start --port $PORT --environment $RAILS_ENV

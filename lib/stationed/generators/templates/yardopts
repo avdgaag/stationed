@@ -1,0 +1,7 @@
+--title 'Rails Application Documentation'
+--readme README.md
+--markup markdown
+--markup-provider kramdown
+--files LICENSE,CHANGELOG
+--output-dir doc/app
+--no-stats

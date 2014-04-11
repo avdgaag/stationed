@@ -1,0 +1,38 @@
+AllCops:
+  Include:
+    - '**/*.gemspec'
+    - '**/Rakefile'
+  Exclude:
+    - bin/**
+    - db/**
+    - vendor/**
+  RunRailsCops: true
+
+SignalException:
+  EnforcedStyle: only_raise
+
+SymbolArray:
+  Enabled: true
+
+HasAndBelongsToMany:
+  Enabled: false
+
+GuardClause:
+  Enabled: true
+
+MethodLength:
+  Max: 15
+
+Documentation:
+  Exclude:
+    - app/controllers/*
+    - app/decorators/*
+    - app/policies/*
+    - config/application.rb
+
+Blocks:
+  Exclude:
+    - spec/**/*
+
+AssignmentInCondition:
+  Enabled: false

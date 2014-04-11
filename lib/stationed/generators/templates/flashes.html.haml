@@ -1,0 +1,5 @@
+- if flash.any?
+  #flash
+    - flash.each do |type, message|
+      .flash{ class: type }= message
+
