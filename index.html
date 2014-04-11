@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Stationed by avdgaag</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Stationed</h1>
+        <h2>Rails application generator and scaffold templates</h2>
+        <a href="https://github.com/avdgaag/stationed" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="stationed" class="anchor" href="#stationed"><span class="octicon octicon-link"></span></a>Stationed</h1>
+
+<h2>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p>Stationed is an extensive Rails application generator, providing you with a
+starter app full standard goodies such as testing, authentication,
+authorization, decorators, tasks and styles. But as an engine it also provides
+you with customized scaffold generators including proper tests. Finally, it
+provides some basic view helpers that every project tends to need. All in all,
+stationed is pretty sweet.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>In order to use Stationed to generate applications, install the gem:</p>
+
+<pre><code>% gem install stationed
+</code></pre>
+
+<p>To use it as an engine in your Rails application, include it in your Gemfile:</p>
+
+<pre><code>gem 'stationed'
+</code></pre>
+
+<p>Run <code>bundle install</code> and you're all set.</p>
+
+<h2>
+<a name="application-generator" class="anchor" href="#application-generator"><span class="octicon octicon-link"></span></a>Application generator</h2>
+
+<p>The application generator is invoked using the <code>stationed</code> command:</p>
+
+<pre><code>% stationed my_app
+</code></pre>
+
+<p>This will generate a default Rails application with the following additions:</p>
+
+<ul>
+<li>
+<strong>Rubocop</strong> for automated style guide testing.</li>
+<li>
+<strong>Pry</strong> for debugging.</li>
+<li>
+<strong>Guard</strong> for auto-running tests.</li>
+<li>
+<strong>Rspec</strong> with Simplecov for testing.</li>
+<li>
+<strong>FactoryGirl</strong> for object factories.</li>
+<li>
+<strong>DatabaseCleaner</strong> as transaction replacement.</li>
+<li>
+<strong>Capybara</strong> for feature testing.</li>
+<li>
+<strong>CapybaraWebkit</strong> for headless browser testing.</li>
+<li>
+<strong>Pundit</strong> for authorization.</li>
+<li>
+<strong>Yard</strong> for API documentation.</li>
+<li>
+<strong>Foreman</strong> for process management.</li>
+<li>
+<strong>Bourbon, Neat and Bitters and normalize.css</strong> for styling.</li>
+<li>
+<strong>Draper</strong> for decorators.</li>
+<li>
+<strong>Gollum</strong> for a built-in development wiki.</li>
+<li>
+<strong>Devise</strong> for authentication.</li>
+<li>
+<strong>Turbolinks</strong> removed.</li>
+<li>
+<strong>Kaminari</strong> for pagination.</li>
+<li>
+<strong>SimpleForm</strong> for awesome form markup.</li>
+<li>
+<strong>Haml</strong> for pretty view templates.</li>
+<li>
+<strong>Webmock</strong> to disallow external HTTP requests in tests.</li>
+<li>
+<strong>I18nSpec</strong> for automated validation of locale files.</li>
+<li>
+<strong>Responders</strong> for DRY controllers.</li>
+</ul><p>...and some other minor configurations and goodies.</p>
+
+<p>All these additions are stand-alone "plugins" for the base application
+generator, so it is easy to adapt them or add others. Have a look at
+<code>lib/stationed/generators/plugins</code> to see all plugins.</p>
+
+<h2>
+<a name="helpers" class="anchor" href="#helpers"><span class="octicon octicon-link"></span></a>Helpers</h2>
+
+<h3>
+<a name="page-title" class="anchor" href="#page-title"><span class="octicon octicon-link"></span></a>Page title</h3>
+
+<p>The page title helper allows you to set a page title based on a string,
+translation key or by a resource. You can easily output it on your page and in
+your layout.</p>
+
+<ul>
+<li>When given no argument, this will return the currently set page title or
+the site-wide default.</li>
+<li>When given a string argument, that will be used in the formatted page
+title (for example with a site-wide suffix).</li>
+<li>When given an ActiveModel-compliant object, its singular and plural human
+names will be interpolated into the model-based title template, along
+with the record's ID.</li>
+</ul><p>You can provide templates for page titles using <code>I18n</code> in three broad
+categories: the <code>model</code>, <code>formatted</code> and <code>standard</code> keys. These will be used
+when you set a page title via a model, string or nothing at all, respectively.</p>
+
+<p>You can specify these translation keys on a global default level, per controller
+or per controller action. The more specific key will take precedence.</p>
+
+<h3>
+<a name="crud-link-helpers" class="anchor" href="#crud-link-helpers"><span class="octicon octicon-link"></span></a>CRUD link helpers</h3>
+
+<p>A collection of helper methods to generate links to CRUD operations with labels
+and URLs generated by resources.</p>
+
+<p>For example:</p>
+
+<pre><code>link_to_new(Post) # =&gt; &lt;a href="/posts/new"&gt;New Post&lt;/a&gt;
+link_to_edit(@product) # =&gt; &lt;a href="/products/1/edit"&gt;Edit Product 1&lt;/a&gt;
+</code></pre>
+
+<p>You can use I18n to fully customize the labels on these links. There are helper
+methods for <code>new</code>, <code>edit</code>, <code>show</code>, <code>destroy</code> and <code>index</code>, in the variants
+<code>link_to</code>, <code>button_to</code> and <code>button_link_to</code> (for links with a <code>button</code> class
+name).</p>
+
+<h3>
+<a name="templates" class="anchor" href="#templates"><span class="octicon octicon-link"></span></a>Templates</h3>
+
+<p>Stationed includes customized scaffold templates for Haml, Rspec and
+controllers. These work out of the box, but you can use a generator to install
+the templates into your application for easy customization:</p>
+
+<pre><code>rails generate stationed:templates
+</code></pre>
+
+<h2>
+<a name="other" class="anchor" href="#other"><span class="octicon octicon-link"></span></a>Other</h2>
+
+<h3>
+<a name="note-on-patchespull-requests" class="anchor" href="#note-on-patchespull-requests"><span class="octicon octicon-link"></span></a>Note on Patches/Pull Requests</h3>
+
+<ol>
+<li>Fork the project.</li>
+<li>Make your feature addition or bug fix.</li>
+<li>Add tests for it. This is important so I don't break it in a future version
+unintentionally.</li>
+<li>Commit, do not mess with rakefile, version, or history. (if you want to have
+your own version, that is fine but bump version in a commit by itself I can
+ignore when I pull)</li>
+<li>Send me a pull request. Bonus points for topic branches.</li>
+</ol><h3>
+<a name="issues" class="anchor" href="#issues"><span class="octicon octicon-link"></span></a>Issues</h3>
+
+<p>Please report any issues, defects or suggestions in the <a href="https://github.com/avdgaag/stationed/issues">Github issue
+tracker</a>.</p>
+
+<h3>
+<a name="what-has-changed" class="anchor" href="#what-has-changed"><span class="octicon octicon-link"></span></a>What has changed?</h3>
+
+<p>See the <a href="https://github.com/avdgaag/stationed/blob/master/HISTORY.md">HISTORY</a> file for a detailed changelog.</p>
+
+<h3>
+<a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h3>
+
+<p>Created by: Arjan van der Gaag<br>
+URL: <a href="http://arjanvandergaag.nl">http://arjanvandergaag.nl</a><br>
+Project homepage:
+<a href="http://avdgaag.github.com/stationed">http://avdgaag.github.com/rpub</a><br>
+Date: april 2014<br>
+License: <a href="https://github.com/avdgaag/stationed/LICENSE">MIT-license</a> (same as Ruby)</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/avdgaag/stationed/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/avdgaag/stationed/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/avdgaag/stationed"></a> is maintained by <a href="https://github.com/avdgaag">avdgaag</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-20357800-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
