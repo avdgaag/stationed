@@ -14,6 +14,7 @@ module Stationed
           gem 'yard', require: false, group: :doc
           gem 'kramdown', require: false, group: :doc
           copy_file 'yardopts', '.yardopts'
+          copy_file 'yard.rake', 'lib/tasks/yard.rake'
           super
         end
       end
