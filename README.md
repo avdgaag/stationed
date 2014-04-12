@@ -55,8 +55,11 @@ This will generate a default Rails application with the following additions:
 ...and some other minor configurations and goodies.
 
 All these additions are stand-alone "plugins" for the base application
-generator, so it is easy to adapt them or add others. Have a look at
-`lib/stationed/generators/plugins` to see all plugins.
+generator, so it is easy to adapt them or add others. Plugins have their own CLI
+options, so you can easily enable or disable them. To see the available options,
+run:
+
+    % stationed -h
 
 ## Helpers
 

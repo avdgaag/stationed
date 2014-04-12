@@ -2,9 +2,17 @@ module Stationed
   module Generators
     module Plugins
       module Devise
+        def self.prepended(base)
+          base.class_option :devise,
+            type: :boolean,
+            default: true,
+            desc: 'Set up authentication with Devise'
+        end
+
         def finish_template
+          return super unless options[:devise]
           gem 'devise'
-          copy_file 'devise.rb', 'spec/support/devise.rb'
+          copy_file 'devise.rb', 'spec/support/devise.rb' if options[:rspec]
           route "devise_scope :user do\n    root to: 'devise/sessions#new'\n  end\n"
           environment nil, env: :test do
             "config.action_mailer.default_url_options = { host: 'example.com' }"
@@ -17,8 +25,10 @@ module Stationed
 
         def run_bundle
           super
+          return unless options[:devise]
           generate 'devise:install'
           generate 'devise user'
+          return unless options[:pundit]
           application do
             <<-RUBY
 # Let Pundit authorization or custom responders not influence the workings

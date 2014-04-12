@@ -2,13 +2,22 @@ module Stationed
   module Generators
     module Plugins
       module SimpleForm
+        def self.prepended(base)
+          base.class_option :simple_form,
+            type: :boolean,
+            default: true,
+            desc: 'Include and configure simple_form as FormBuilder'
+        end
+
         def finish_template
+          return super unless options[:simple_form]
           gem 'simple_form'
           super
         end
 
         def run_bundle
           super
+          return unless options[:simple_form]
           generate 'simple_form:install'
           remove_file 'config/initializers/simple_form.rb'
           copy_file 'simple_form.rb', 'config/initializers/simple_form.rb'

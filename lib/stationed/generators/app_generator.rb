@@ -35,7 +35,6 @@ module Stationed
       prepend Plugins::Flashes
       prepend Plugins::Webmock
       prepend Plugins::Layout
-      prepend Plugins::Normalize
       prepend Plugins::I18nSpec
       prepend Plugins::SimpleFormInputs
       prepend Plugins::Spring

@@ -2,7 +2,15 @@ module Stationed
   module Generators
     module Plugins
       module Responders
+        def self.prepended(base)
+          base.class_option :responders,
+            type: :boolean,
+            default: true,
+            desc: 'Add and configure Responders gem for DRY controllers'
+        end
+
         def finish_template
+          return super unless options[:responders]
           gem 'responders'
           copy_file 'application_responder.rb', 'lib/application_responder.rb'
 
