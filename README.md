@@ -99,6 +99,27 @@ methods for `new`, `edit`, `show`, `destroy` and `index`, in the variants
 `link_to`, `button_to` and `button_link_to` (for links with a `button` class
 name).
 
+### Placeholders
+
+Display a placeholder message using standardized markup and a message defined
+through I18n.
+
+When in a controller PostsController and action index, this will try to look up
+the following placeholder keys:
+
+* placeholders.posts.index
+* placeholders.posts.default
+* placeholders.defaults.index
+
+You can also provide an argument to set the placeholder message. When given a
+string, it will be used directly as the placeholder message. When given a
+symbol, that key will be looked up in the `placeholders.defaults` namespace
+using I18n.
+
+For example:
+
+    placeholder('Nothing found') # => '<p class="placeholder">Nothing found</p>'
+
 ### Templates
 
 Stationed includes customized scaffold templates for Haml, Rspec and
