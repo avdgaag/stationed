@@ -163,6 +163,30 @@ methods for <code>new</code>, <code>edit</code>, <code>show</code>, <code>destro
 <code>link_to</code>, <code>button_to</code> and <code>button_link_to</code> (for links with a <code>button</code> class
 name).</p>
 
+<h3><a name="templates" class="anchor" href="#placeholders"><span class="octicon octicon-link"></span>Placeholders</a></h3>
+
+<p>Display a placeholder message using standardized markup and a message defined
+through I18n.</p>
+
+<p>When in a controller PostsController and action index, this will try to look up
+the following placeholder keys:</p>
+
+<ul>
+  <li>placeholders.posts.index</li>
+  <li>placeholders.posts.default</li>
+  <li>placeholders.defaults.index</li>
+</ul>
+
+<p>You can also provide an argument to set the placeholder message. When given a
+string, it will be used directly as the placeholder message. When given a
+symbol, that key will be looked up in the <code>placeholders.defaults</code> namespace
+using I18n.</p>
+
+<p>For example:</p>
+
+<pre><code>placeholder('Nothing found') # =&gt; '&lt;p class="placeholder"&gt;Nothing found&lt;/p&gt;'
+</code></pre>
+
 <h3>
 <a name="templates" class="anchor" href="#templates"><span class="octicon octicon-link"></span></a>Templates</h3>
 
