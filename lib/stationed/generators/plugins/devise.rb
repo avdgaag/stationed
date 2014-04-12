@@ -15,10 +15,10 @@ module Stationed
           copy_file 'devise.rb', 'spec/support/devise.rb' if options[:rspec]
           route "devise_scope :user do\n    root to: 'devise/sessions#new'\n  end\n"
           environment nil, env: :test do
-            "config.action_mailer.default_url_options = { host: 'example.com' }"
+            "# Set default url options for Devise mailers\n  config.action_mailer.default_url_options = { host: 'example.com' }\n"
           end
           environment nil, env: :development do
-            "config.action_mailer.default_url_options = { host: 'localhost:3000' }"
+            "# Set default url options for Devise mailers\n  config.action_mailer.default_url_options = { host: 'localhost:3000' }\n"
           end
           super
         end

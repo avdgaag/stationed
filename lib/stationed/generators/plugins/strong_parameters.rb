@@ -14,8 +14,8 @@ module Stationed
           environment nil, env: :development do
             <<-RUBY
 # Raise an ActionController::UnpermittedParameters exception when
-# a parameter is not explcitly permitted but is passed anyway.
-config.action_controller.action_on_unpermitted_parameters = :raise
+  # a parameter is not explcitly permitted but is passed anyway.
+  config.action_controller.action_on_unpermitted_parameters = :raise
             RUBY
           end
           super
