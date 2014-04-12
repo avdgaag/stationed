@@ -18,8 +18,9 @@ provides some basic view helpers that every project tends to need. All in all,
 stationed is pretty sweet.
 EOS
 
-  s.files = Dir['{app,config,db,lib}/**/*', 'LICENSE', 'Rakefile', 'README.md']
-  s.test_files = Dir['spec/**/*']
+  s.files        = Dir['{app,config,db,lib}/**/*', 'LICENSE', 'Rakefile', 'README.md']
+  s.test_files   = Dir['spec/**/*']
+  s.executables  = Dir['bin/*'].map { |f| File.basename(f) }
 
   s.add_dependency 'rails', '~> 4.1'
   s.add_development_dependency 'sqlite3'
