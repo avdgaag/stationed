@@ -1,5 +1,9 @@
 # HISTORY
 
+## Unreleased
+
+* Fix: install the `stationed` executable correctly [ariejan]
+
 ## 0.2.0
 
 * Added PlaceholderHelper
