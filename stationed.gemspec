@@ -18,7 +18,7 @@ provides some basic view helpers that every project tends to need. All in all,
 stationed is pretty sweet.
 EOS
 
-  s.files = Dir['{app,config,db,lib}/**/*', 'LICENSE', 'Rakefile', 'README.md']
+  s.files = Dir['{app,config,db,lib}/**/*', 'LICENSE', 'Rakefile', 'HISTORY.md', 'README.md']
   s.test_files = Dir['spec/**/*']
   s.executables = %w[stationed]
 
