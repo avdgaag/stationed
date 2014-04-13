@@ -1,6 +1,6 @@
 # HISTORY
 
-## Unreleased
+## 0.3.0
 
 * Properly installed stationed executable [ariejan]
 
