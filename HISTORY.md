@@ -1,5 +1,9 @@
 # HISTORY
 
+## Unreleased
+
+* Properly installed stationed executable [ariejan]
+
 ## 0.2.0
 
 * Added PlaceholderHelper
