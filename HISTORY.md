@@ -6,6 +6,7 @@
 * Prevent load order issue with i18n-spec matchers
 * Allow passing additional interpolation arguments to record-based page titles
 * Add extra action-default record page title translation key
+* Use regular translate helper rather than directly accessing I18n
 
 ## 0.3.0
 

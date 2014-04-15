@@ -45,14 +45,14 @@ module PageTitleHelper
   private
 
   def standard_title
-    I18n.translate(
+    translate(
       standard_defaults.first,
       default: standard_defaults.drop(1)
     )
   end
 
   def formatted_title
-    I18n.translate(
+    translate(
       formatted_defaults.first,
       title:   content_for(:page_title),
       default: formatted_defaults.drop(1)
@@ -65,7 +65,7 @@ module PageTitleHelper
       singular: klass.model_name.human,
       plural:   klass.model_name.human.pluralize
     )
-    I18n.translate model_defaults.first, options
+    translate model_defaults.first, options
   end
 
   def title_from_string_or_record_or_class(object, options)

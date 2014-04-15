@@ -15,7 +15,7 @@ describe PageTitleHelper do
     name   = double human: 'Post'
     model  = double model_name: name
     record = double class: model, to_param: '1'
-    expect(I18n).to receive(:translate).with(
+    expect(helper).to receive(:translate).with(
       :'page_title.controller.action.model',
       singular: 'Post',
       plural: 'Posts',
@@ -31,11 +31,11 @@ describe PageTitleHelper do
     helper.page_title record
   end
 
-  it 'passes additional options along to I18n.translate when setting a record title' do
+  it 'passes additional options along to helper.translate when setting a record title' do
     name   = double human: 'Post'
     model  = double model_name: name
     record = double class: model, to_param: '1'
-    expect(I18n).to receive(:translate).with(
+    expect(helper).to receive(:translate).with(
       :'page_title.controller.action.model',
       singular: 'Post',
       plural: 'Posts',
@@ -55,7 +55,7 @@ describe PageTitleHelper do
   it 'interpolates plural and singular names into the formatted default given a model' do
     name = double human: 'Post'
     model = double model_name: name
-    expect(I18n).to receive(:translate).with(
+    expect(helper).to receive(:translate).with(
       :'page_title.controller.action.model',
       singular: 'Post',
       plural: 'Posts',
@@ -76,7 +76,7 @@ describe PageTitleHelper do
     end
 
     it 'inserts it into the default format' do
-      expect(I18n).to receive(:translate).with(
+      expect(helper).to receive(:translate).with(
         :'page_title.controller.action.formatted',
         default: [
           :'page_title.controller.formatted',
@@ -92,7 +92,7 @@ describe PageTitleHelper do
 
   context 'when no title has been set' do
     it 'returns the default page title' do
-      expect(I18n).to receive(:translate).with(
+      expect(helper).to receive(:translate).with(
         :'page_title.controller.action.standard',
         default: [
           :'page_title.controller.standard',
