@@ -11,7 +11,7 @@ module Stationed
 
         def finish_template
           return super unless options[:layout]
-          remove_file 'app/views/layouts/application.html.haml'
+          remove_file 'app/views/layouts/application.html.erb'
           copy_file 'application.html.haml', 'app/views/layouts/application.html.haml'
           super
         end
