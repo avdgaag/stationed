@@ -30,6 +30,26 @@ describe PageTitleHelper do
     helper.page_title record
   end
 
+  it 'passes additional options along to I18n.translate when setting a record title' do
+    name   = double human: 'Post'
+    model  = double model_name: name
+    record = double class: model, to_param: '1'
+    expect(I18n).to receive(:translate).with(
+      :'page_title.controller.action.model',
+      singular: 'Post',
+      plural: 'Posts',
+      id: '1',
+      extra_argument: 'foobar',
+      default: [
+        :'page_title.controller.model',
+        :'page_title.default.model',
+        :'page_title.default.standard',
+        'Dummy'
+      ]
+    ).and_return('bla')
+    helper.page_title record, extra_argument: 'foobar'
+  end
+
   it 'interpolates plural and singular names into the formatted default given a model' do
     name = double human: 'Post'
     model = double model_name: name

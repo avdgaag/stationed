@@ -4,6 +4,7 @@
 
 * Improve default layout and actually remove Erb layout file
 * Prevent load order issue with i18n-spec matchers
+* Allow passing additional interpolation arguments to record-based page titles
 
 ## 0.3.0
 
