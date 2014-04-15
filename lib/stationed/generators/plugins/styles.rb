@@ -15,9 +15,11 @@ module Stationed
           gem 'neat'
           gem 'bitters'
           remove_file 'app/assets/stylesheets/application.css'
-          copy_file 'application.scss', 'app/assets/stylesheets/application.scss'
-          copy_file 'layout.scss', 'app/assets/stylesheets/_layout.scss'
-          copy_file 'normalize.css', 'vendor/assets/stylesheets/normalize.css'
+          copy_file 'application.scss',            'app/assets/stylesheets/application.scss'
+          copy_file 'layout.scss',                 'app/assets/stylesheets/_layout.scss'
+          copy_file '_input_wrapper_default.scss', 'app/assets/stylesheets/modules/_input_wrapper_default.scss'
+          copy_file '_error_notification.scss',    'app/assets/stylesheets/modules/_error_notification.scss'
+          copy_file 'normalize.css',               'vendor/assets/stylesheets/normalize.css'
           super
         end
 

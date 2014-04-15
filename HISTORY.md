@@ -1,5 +1,9 @@
 # HISTORY
 
+## Unreleased
+
+* Include default form element and error styles
+
 ## 0.4.0
 
 * Improve default layout and actually remove Erb layout file

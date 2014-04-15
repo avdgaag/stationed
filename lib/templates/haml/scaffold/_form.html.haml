@@ -1,6 +1,6 @@
 = form_for(@<%= singular_table_name %>) do |f|
   = f.error_notification
-  = f.base_errors
+  = f.full_error :base
 
   .form-inputs
 <%- attributes.each do |attribute| -%>
@@ -8,4 +8,4 @@
 <%- end -%>
 
   .form-actions
-    = f.submit_or_cancel
+    = f.button :submit

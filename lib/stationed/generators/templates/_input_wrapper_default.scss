@@ -1,0 +1,68 @@
+.input {
+  @include row;
+  margin-bottom: $base-line-height / 2;
+
+  abbr[title=required] {
+    border: none;
+    color: darken($error-color, 60);
+  }
+
+  label {
+    font-weight: normal;
+
+    &.required:after {
+      content: "";
+    }
+
+    abbr {
+      display: inline;
+    }
+  }
+
+  .hint {
+    color: $medium-gray;
+  }
+
+  &.field-with-errors {
+    label {
+      font-weight: bold;
+      color: darken($error-color, 60);
+    }
+
+    textarea,
+    #{$all-text-inputs},
+    select[multiple=multiple] {
+      border-color: darken($error-color, 60);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  .error {
+    @include flash($error-color);
+    border: 1px solid darken($error-color, 60);
+    border-top: 0;
+    padding: ($base-line-height / 4);
+    margin: 0 0 ($base-line-height / 2);
+    border-bottom-left-radius: $form-border-radius;
+    border-bottom-right-radius: $form-border-radius;
+  }
+
+  .input-label {
+    @include span-columns(3);
+  }
+
+  .input-field {
+    @include span-columns(9);
+  }
+
+  textarea,
+  #{$all-text-inputs},
+  select {
+    margin: 0;
+  }
+
+  &.datetime select {
+    display: inline;
+  }
+}
