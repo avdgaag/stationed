@@ -1,3 +1,6 @@
+require 'spec_helper'
+require 'i18n-spec'
+
 Dir.glob('config/locales/*.yml') do |locale_file|
   describe locale_file do
     it { should be_parseable }
