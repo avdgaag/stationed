@@ -101,6 +101,7 @@ module PageTitleHelper
     [
       :"page_title.#{controller_name}.#{action_name}.model",
       :"page_title.#{controller_name}.model",
+      :"page_title.default.#{action_name}.model",
       :'page_title.default.model',
       :'page_title.default.standard',
       ::Rails.application.class.parent_name

@@ -22,6 +22,7 @@ describe PageTitleHelper do
       id: '1',
       default: [
         :'page_title.controller.model',
+        :'page_title.default.action.model',
         :'page_title.default.model',
         :'page_title.default.standard',
         'Dummy'
@@ -42,6 +43,7 @@ describe PageTitleHelper do
       extra_argument: 'foobar',
       default: [
         :'page_title.controller.model',
+        :'page_title.default.action.model',
         :'page_title.default.model',
         :'page_title.default.standard',
         'Dummy'
@@ -59,6 +61,7 @@ describe PageTitleHelper do
       plural: 'Posts',
       default: [
         :'page_title.controller.model',
+        :'page_title.default.action.model',
         :'page_title.default.model',
         :'page_title.default.standard',
         'Dummy'
