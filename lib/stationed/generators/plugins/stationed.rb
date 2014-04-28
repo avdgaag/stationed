@@ -11,7 +11,7 @@ module Stationed
 
         def finish_template
           return super unless options[:stationed]
-          gem 'stationed', path: '~/code/stationed'
+          gem 'stationed', Stationed::VERSION
           super
         end
       end
