@@ -8,7 +8,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   before_action :set_<%= singular_table_name %>, only: %i[show edit update destroy]
 
   def index
-    @<%= plural_table_name %> = policy_scope(<%= orm_class.all(class_name) %>).decorate
+    @<%= plural_table_name %> = policy_scope(<%= orm_class.all(class_name) %>).page(params[:page]).decorate
     respond_with @<%= plural_table_name %>
   end
 
