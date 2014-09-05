@@ -1,3 +1,5 @@
+require 'stationed/version'
+
 module Stationed
   module Generators
     module Plugins
@@ -11,7 +13,7 @@ module Stationed
 
         def finish_template
           return super unless options[:stationed]
-          gem 'stationed', Stationed::VERSION
+          gem 'stationed', ::Stationed::VERSION
           super
         end
       end
