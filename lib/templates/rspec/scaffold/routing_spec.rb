@@ -1,7 +1,5 @@
-require 'spec_helper'
-
 <% module_namespacing do -%>
-describe <%= controller_class_name %>Controller do
+RSpec.describe <%= controller_class_name %>Controller, type: :view do
   describe 'routing' do
 <% unless options[:singleton] -%>
     it { expect(get: '/<%= ns_table_name %>').to route_to('<%= ns_table_name %>#index') }

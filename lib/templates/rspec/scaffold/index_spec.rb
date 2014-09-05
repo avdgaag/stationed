@@ -1,6 +1,4 @@
-require 'spec_helper'
-
-describe "<%= ns_table_name %>/index" do
+RSpec.describe "<%= ns_table_name %>/index", type: :view do
   let(:<%= table_name %>) { build_stubbed_list :<%= ns_file_name %>, 3 }
 
   before do

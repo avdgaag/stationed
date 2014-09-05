@@ -1,7 +1,5 @@
-require 'spec_helper'
-
 <% module_namespacing do -%>
-describe <%= controller_class_name %>Controller do
+RSpec.describe <%= controller_class_name %>Controller, type: :controller do
   subject { response }
 
 <% unless options[:singleton] -%>

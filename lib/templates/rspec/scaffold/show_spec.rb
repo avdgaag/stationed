@@ -1,6 +1,4 @@
-require 'spec_helper'
-
-describe "<%= ns_table_name %>/show" do
+RSpec.describe "<%= ns_table_name %>/show", type: :view do
   let(:<%= ns_file_name %>) { build_stubbed :<%= ns_file_name %> }
 
   before do

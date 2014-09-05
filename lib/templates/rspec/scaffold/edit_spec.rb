@@ -1,7 +1,5 @@
-require 'spec_helper'
-
 <% output_attributes = attributes.reject{|attribute| [:datetime, :timestamp, :time, :date].index(attribute.type) } -%>
-describe "<%= ns_table_name %>/edit" do
+RSpec.describe "<%= ns_table_name %>/edit", type: :view do
   let(:<%= ns_file_name %>) { build_stubbed :<%= ns_file_name %> }
 
   before do
