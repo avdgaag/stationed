@@ -27,8 +27,8 @@ module Stationed
           super
           return unless options[:styles]
           run 'bitters install'
-          FileUtils.mv 'bitters', 'app/assets/stylesheets/bitters'
-          gsub_file 'app/assets/stylesheets/bitters/_bitters.scss', %r{// @import}, '@import'
+          FileUtils.mv 'base', 'app/assets/stylesheets/base'
+          gsub_file 'app/assets/stylesheets/base/_base.scss', %r{// @import}, '@import'
         end
       end
     end
