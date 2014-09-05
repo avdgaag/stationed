@@ -17,7 +17,7 @@ module Stationed
       prepend Plugins::FactoryGirl
       prepend Plugins::DatabaseCleaner
       prepend Plugins::Capybara
-      prepend Plugins::CapybaraWebkit
+      prepend Plugins::Poltergeist
       prepend Plugins::Pundit
       prepend Plugins::Yard
       prepend Plugins::Foreman
