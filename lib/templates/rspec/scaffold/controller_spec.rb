@@ -10,8 +10,9 @@ describe <%= controller_class_name %>Controller do
 
     before do
       allow(<%= class_name %>).to receive(:all).and_return(<%= table_name %>)
-      <%= class_name %>Policy.any_instance.stub(:index?).and_return(true)
+      allow_any_instance_of(<%= class_name %>Policy).to receive(:index?).and_return(true)
       allow(Array).to receive(:policy_class).and_return(<%= class_name %>Policy)
+      allow(<%= table_name %>).to receive(:page).and_return(<%= table_name %>)
       allow(<%= table_name %>).to receive(:decorate).and_return(<%= table_name %>)
     end
 
@@ -38,7 +39,7 @@ describe <%= controller_class_name %>Controller do
 
     before do
       allow(<%= class_name %>).to receive(:find).with(<%= file_name %>.to_param).and_return(<%= file_name %>)
-      <%= class_name %>Policy.any_instance.stub(:show?).and_return(true)
+      allow_any_instance_of(<%= class_name %>Policy).to receive(:show?).and_return(true)
     end
 
     describe 'response' do
@@ -63,7 +64,7 @@ describe <%= controller_class_name %>Controller do
 
     before do
       allow(<%= class_name %>).to receive(:new).and_return(<%= file_name %>)
-      <%= class_name %>Policy.any_instance.stub(:new?).and_return(true)
+      allow_any_instance_of(<%= class_name %>Policy).to receive(:new?).and_return(true)
     end
 
     describe 'response' do
@@ -88,7 +89,7 @@ describe <%= controller_class_name %>Controller do
 
     before do
       allow(<%= class_name %>).to receive(:find).with(<%= file_name %>.to_param).and_return(<%= file_name %>)
-      <%= class_name %>Policy.any_instance.stub(:edit?).and_return(true)
+      allow_any_instance_of(<%= class_name %>Policy).to receive(:edit?).and_return(true)
     end
 
     describe 'response' do
@@ -110,7 +111,7 @@ describe <%= controller_class_name %>Controller do
 
   describe 'POST create' do
     before do
-      <%= class_name %>Policy.any_instance.stub(:create?).and_return(true)
+      allow_any_instance_of(<%= class_name %>Policy).to receive(:create?).and_return(true)
     end
 
     describe 'with valid params' do
@@ -158,26 +159,28 @@ describe <%= controller_class_name %>Controller do
 
     before do
       allow(<%= class_name %>).to receive(:find).with(<%= file_name %>.to_param).and_return(<%= file_name %>)
-      <%= class_name %>Policy.any_instance.stub(:update?).and_return(true)
+      allow_any_instance_of(<%= class_name %>Policy).to receive(:update?).and_return(true)
     end
 
     describe 'with valid params' do
+      let(:attributes) { attributes_for(:<%= file_name %>) }
+
       before do
         allow(<%= file_name %>).to receive(:update).and_return(true)
       end
 
       it 'updates the requested <%= ns_file_name %>' do
-        expect(<%= file_name %>).to receive(:update).with(attributes_for(:<%= file_name %>).stringify_keys)
-        put :update, id: <%= file_name %>.to_param, <%= ns_file_name %>: attributes_for(:<%= file_name %>)
+        expect(<%= file_name %>).to receive(:update).with(attributes.stringify_keys)
+        put :update, id: <%= file_name %>.to_param, <%= ns_file_name %>: attributes
       end
 
       it 'assigns the requested <%= ns_file_name %> as @<%= ns_file_name %>' do
-        put :update, id: <%= file_name %>.to_param, <%= ns_file_name %>: attributes_for(:<%= file_name %>)
+        put :update, id: <%= file_name %>.to_param, <%= ns_file_name %>: attributes
         expect(assigns(:<%= ns_file_name %>)).to eq(<%= file_name %>)
       end
 
       it 'redirects to the <%= ns_file_name %>' do
-        put :update, id: <%= file_name %>.to_param, <%= ns_file_name %>: attributes_for(:<%= file_name %>)
+        put :update, id: <%= file_name %>.to_param, <%= ns_file_name %>: attributes
         expect(response).to redirect_to(<%= file_name %>)
       end
     end
@@ -207,7 +210,7 @@ describe <%= controller_class_name %>Controller do
       allow(<%= class_name %>).to receive(:find).with(<%= file_name %>.to_param).and_return(<%= file_name %>)
       allow(<%= file_name %>).to receive(:destroy).and_return(true)
       allow(<%= file_name %>).to receive(:persisted?).and_return(false)
-      <%= class_name %>Policy.any_instance.stub(:destroy?).and_return(true)
+      allow(<%= class_name %>Policy).to receive(:destroy?).and_return(true)
     end
 
     it 'destroys the requested <%= ns_file_name %>' do
