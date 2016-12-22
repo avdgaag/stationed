@@ -22,7 +22,7 @@ EOS
   s.test_files = Dir['spec/**/*']
   s.executables = %w[stationed]
 
-  s.add_dependency 'rails', '~> 4.1'
+  s.add_dependency 'rails', '>= 4.1'
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'rspec-rails'
 end
