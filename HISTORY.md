@@ -1,6 +1,10 @@
 # HISTORY
 
-## Unreleased
+## 0.6.0
+
+* Support Rails 5 (rrooding)
+
+## 0.5.0
 
 * Include default form element and error styles
 

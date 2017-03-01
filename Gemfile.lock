@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    stationed (0.5.0)
+    stationed (0.6.0)
       rails (>= 4.1)
 
 GEM
