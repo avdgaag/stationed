@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PlaceholderHelper do
+RSpec.describe PlaceholderHelper, type: :helper do
   before do
     allow(helper).to receive(:controller_name).and_return('products')
     allow(helper).to receive(:action_name).and_return('index')

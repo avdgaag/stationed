@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PageTitleHelper do
+RSpec.describe PageTitleHelper, type: :helper do
   before do
     allow(helper).to receive(:controller_name).and_return('controller')
     allow(helper).to receive(:action_name).and_return('action')

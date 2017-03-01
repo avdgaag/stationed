@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CrudLinkHelper do
+RSpec.describe CrudLinkHelper, type: :helper do
   before do
     I18n.backend.store_translations(
       :en,
@@ -68,21 +68,21 @@ describe CrudLinkHelper do
   it 'allows adding custom options' do
     allow(helper).to receive(:new_post_path).and_return('/posts/new')
     expect(helper.link_to_new(Post, title: 'bla')).to eql(
-      '<a href="/posts/new" title="bla">New Blog post</a>'
+      '<a title="bla" href="/posts/new">New Blog post</a>'
     )
   end
 
   it 'creates a button' do
     allow(helper).to receive(:new_post_path).and_return('/posts/new')
     expect(helper.button_to_new(Post)).to eql(
-      %Q{<form action="/posts/new" class="button_to" method="post"><div><input type="submit" value="New Blog post" /></div></form>}
+      %Q{<form class="button_to" method="post" action="/posts/new"><input type="submit" value="New Blog post" /></form>}
     )
   end
 
   it 'creates a button link' do
     allow(helper).to receive(:new_post_path).and_return('/posts/new')
     expect(helper.button_link_to_new(Post, title: 'bla')).to eql(
-      '<a class="button" href="/posts/new" title="bla">New Blog post</a>'
+      '<a title="bla" class="button" href="/posts/new">New Blog post</a>'
     )
   end
 end
